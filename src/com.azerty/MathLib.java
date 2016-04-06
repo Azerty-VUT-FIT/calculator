@@ -21,7 +21,7 @@ public class MathLib {
         return 0;
     }
 
-    double exponent (double a, double b) {
+    double exponent (double a, int b) {
         return 0;
     }
 
@@ -29,7 +29,7 @@ public class MathLib {
         return 0;
     }
 
-    double modulo (int a, int b) {
+    double modulo (double a, double b) {
         return 0;
     }
 }

@@ -29,7 +29,5 @@ public class MathLib {
         return 0;
     }
 
-    double modulo (double a, double b) {
-        return 5;
-    }
+    double modulo (double a, double b) { return 0; }
 }

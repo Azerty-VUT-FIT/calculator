@@ -1,5 +1,11 @@
+package com.azerty;
+
 public class MathLib {
-    double plus (double a, double b) {
+
+    public MathLib() {
+    }
+
+    public double plus (double a, double b) {
         return 0;
     }
 

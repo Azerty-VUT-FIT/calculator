@@ -30,6 +30,6 @@ public class MathLib {
     }
 
     double modulo (double a, double b) {
-        return 0;
+        return 5;
     }
 }

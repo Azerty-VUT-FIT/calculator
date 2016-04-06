@@ -5,31 +5,33 @@ public class MathLib {
     public MathLib() {
     }
 
-    public double plus (double a, double b) {
-        return 0;
+    String plus (double a, double b) {
+        return "";
     }
 
-    double minus (double a, double b) {
-        return 0;
+    String minus (double a, double b) {
+        return "";
     }
 
-    double multiply (double a, double b) {
-        return 0;
+    String multiply (double a, double b) {
+        return "";
     }
 
-    double divide (double a, double b) {
-        return 0;
+    String divide (double a, double b) {
+        return "";
     }
 
-    double exponent (double a, int b) {
-        return 0;
+    String exponent (double a, int b) {
+        return "";
     }
 
-    long factorial (int a) {
-        return 0;
+    String factorial (int a) {
+        return "";
     }
 
-    double modulo (double a, double b) {
-        return 0;
+    String modulo (double a, double b) {
+        return "";
     }
+
+
 }

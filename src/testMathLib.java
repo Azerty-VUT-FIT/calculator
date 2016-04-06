@@ -1,6 +1,3 @@
-/**
- *
- */
 public class TestMathLib {
 
     private MathLib toTest;

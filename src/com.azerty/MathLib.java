@@ -5,31 +5,42 @@ public class MathLib {
     public MathLib() {
     }
 
-    String plus (double a, double b) {
+    public static final String error = "error"; //error message
+
+    static String getPlus(double a, double b) {
         return "";
     }
 
-    String minus (double a, double b) {
+    static String getMinus(double a, double b) {
         return "";
     }
 
-    String multiply (double a, double b) {
+    static String getMultiply(double a, double b) {
         return "";
     }
 
-    String divide (double a, double b) {
+    static String getDivide(double a, double b) {
         return "";
     }
 
-    String exponent (double a, int b) {
+    static String getExponent(double a, int b) {
         return "";
     }
 
-    String factorial (int a) {
-        return "";
+
+    //factorial calculation
+    private static long factorial(int a) {
+        if (a==0) return 1; //0! = 1
+        return factorial(a)*factorial(a-1); //recursive calculation
+        //ToDo overflow check
     }
 
-    String modulo (double a, double b) {
+    static String getFactorial(int a) {
+        if (a<0) return error; // a! <=> a<0 = error
+        return Long.toString(factorial(a));
+    }
+
+    static String getModulo(double a, double b) {
         return "";
     }
 

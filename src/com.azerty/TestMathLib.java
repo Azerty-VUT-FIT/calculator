@@ -15,9 +15,9 @@ public class TestMathLib {
     }
 
     // subtracts two positive numbers a>b
-    public void testMinusPositive() {
+    public void testMinusPositiveAB() {
         prepare();
-        System.out.pintln(toTest.minus(4, 2).equals(2) ? "subtracts positive test passed" : "subtracts positive test failed");
+        System.out.println(toTest.minus(4, 2).equals(2) ? "subtracts positive test passed" : "subtracts positive test failed");
     }
 
     //  multiplies two positive numbers
@@ -51,20 +51,20 @@ public class TestMathLib {
     }
 
     // adds two negative numbers
-    public void testPlusNegativ() {
+    public void testPlusNegative() {
         prepare();
         System.out.println(toTest.plus(-4, -2).equals(-6) ? "plus negative test passed" : "plus negative test failed");
     }
 
     // subtracts two positive numbers a<b
-    public void testMinusPositive() {
+    public void testMinusPositiveBA() {
         prepare();
-        System.out.pintln(toTest.minus(2, 5).equals(-3) ? "subtracts positive test passed" : "subtracts positive test failed");
+        System.out.println(toTest.minus(2, 5).equals(-3) ? "subtracts positive test passed" : "subtracts positive test failed");
     }
 
     // subtracts two negative numbers
-    public void testMinusPositive() {
+    public void testMinusNegative() {
         prepare();
-        System.out.pintln(toTest.minus(-4, -3).equals(1) ? "subtracts negative test passed" : "subtracts negative test failed");
+        System.out.println(toTest.minus(-4, -3).equals(1) ? "subtracts negative test passed" : "subtracts negative test failed");
     }
 }

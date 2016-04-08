@@ -67,4 +67,5 @@ public class TestMathLib {
         prepare();
         System.out.println(toTest.getMinus(-4, -3).equals(1) ? "subtracts negative test passed" : "subtracts negative test failed");
     }
+    //ToDo errors check
 }

@@ -31,7 +31,7 @@ public class MathLib {
     //factorial calculation
     private static long factorial(int a) {
         if (a==0) return 1; //0! = 1
-        return factorial(a)*factorial(a-1); //recursive calculation
+        return a*factorial(a-1); //recursive calculation
         //ToDo overflow check
     }
 

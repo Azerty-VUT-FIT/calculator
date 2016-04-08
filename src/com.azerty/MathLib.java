@@ -1,13 +1,13 @@
 package com.azerty;
 
-import java.util.DoubleSummaryStatistics;
-
 public class MathLib {
 
     public MathLib() { }
 
-    public static final String error = "error"; //error message
+    public static final String mathError = " math mathError"; //math mathError message
+    public static final String overError = "calc mathError"; //calc not able to handle such a large number ToDo overflow checks
 
+    //returns absolute value
     public static int absoluteValue (int x) {
         if (x>=0) return x;
         else return -x;
@@ -43,7 +43,7 @@ public class MathLib {
     }
     //division exception handling
     static String getDivide(double a, double b) {
-        if (b==0) return "error";
+        if (b==0) return "mathError";
         return Double.toString(divide(a, b));
     }
 
@@ -68,7 +68,7 @@ public class MathLib {
     }
     //factorial exception handling
     static String getFactorial(int a) {
-        if (a<0) return error; // a! <=> a<0 = error
+        if (a<0) return mathError; // a! <=> a<0 = mathError
         return Long.toString(factorial(a));
     }
 

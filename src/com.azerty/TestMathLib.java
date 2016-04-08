@@ -2,6 +2,8 @@ package com.azerty;
 
 public class TestMathLib {
 
+    public TestMathLib() { }
+
     private MathLib toTest;
 
     private void prepare() {
@@ -67,5 +69,5 @@ public class TestMathLib {
         prepare();
         System.out.println(toTest.getMinus(-4, -3).equals(1) ? "subtracts negative test passed" : "subtracts negative test failed");
     }
-    //ToDo errors check
+    //ToDo errors check, negative exponent
 }

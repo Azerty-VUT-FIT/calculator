@@ -73,8 +73,43 @@ public class TestMathLib {
     // tests negative 2nd power of 6
     public void testExpoNegative(){
         prepare();
-        int x=(1/36); //correct answer
-        System.out.println(toTest.getExponent(6, -2).equals("") ? "negative 2nd power test passed" : "negative 2nd power test failed"); //ToDo equals
+        double x=(1/36); //correct answer
+        System.out.println(toTest.getExponent(6, -2).equals(Double.toString(x)) ? "negative 2nd power test passed" : "negative 2nd power test failed");
     }
-    //ToDo errors check, negative exponent
+
+    // negative factorial
+    public void testNegativeFactorial(){
+        prepare();
+        System.out.println(toTest.getFactorial(-3).equals(toTest.mathError) ? "negative factorial test passed" : "negative factorial test failed");
+    }
+
+    //dividing with 0
+    public void testDivideZero(){
+        prepare();
+        System.out.println(toTest.getDivide(6, 0).equals(toTest.mathError) ? "dividing with 0 test passed" : "dividing with 0 test failed");
+    }
+
+    public void test(){
+        testDividePositive();
+        testDivideZero();
+        testExpoNegative();
+        testExpoPositive();
+        testFactorial();
+        testMinusNegative();
+        testMinusPositiveAB();
+        testMinusPositiveBA();
+        testModuloPositive();
+        testMultiplyPositive();
+        testNegativeFactorial();
+        testPlusPositive();
+        testPlusNegative();
+    }
+
+    //ToDo Overflow errors tests
+
+    //overflow multiply
+    public void testOverflowMulti(){
+        prepare();
+        System.out.println(toTest.getMultiply(Double.MAX_VALUE, 10).equals(toTest.overError) ? "overflow multiply test passed" : "overflow multiply test failed");
+    }
 }

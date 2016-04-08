@@ -4,8 +4,8 @@ public class MathLib {
 
     public MathLib() { }
 
-    public static final String mathError = " math mathError"; //math mathError message
-    public static final String overError = "calc mathError"; //calc not able to handle such a large number ToDo overflow checks
+    public static final String mathError = "math error"; //math mathError message
+    public static final String overError = "calc error"; //calc not able to handle such a large number ToDo overflow checks
 
     //returns absolute value
     public static int absoluteValue (int x) {
@@ -18,7 +18,12 @@ public class MathLib {
         return a+b;
     }
     static String getPlus(double a, double b) {
-        return Double.toString(plus(a, b));
+        double eq=a+b;
+        if (a>0 && b>0 && eq>a && eq>b){
+            return Double.toString(plus(a, b));
+        }else if(a<0 && b<0 && eq<a && eq<b) {
+            return Double.toString(plus(a, b));
+        }
     }
 
     //minus calculation
@@ -34,7 +39,13 @@ public class MathLib {
         return a*b;
     }
     static String getMultiply(double a, double b) {
-        return Double.toString(multiply(a, b));
+        long maximum = Long.signum(a) == Long.signum(b) ? Long.MAX_VALUE : Long.MIN_VALUE;
+
+        if (a != 0 && (b > 0 && b > maximum / a ||
+                b < 0 && b < maximum / a)) {
+            return overError;
+        }
+            return Double.toString(multiply(a, b));
     }
 
     //divide operation

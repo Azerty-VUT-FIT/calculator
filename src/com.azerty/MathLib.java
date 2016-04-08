@@ -5,7 +5,7 @@ public class MathLib {
     public MathLib() { }
 
     public static final String mathError = "math error"; //math mathError message
-    public static final String overError = "calc error"; //calc not able to handle such a large number ToDo overflow checks
+    public static final String overError = "calc error"; //calc not able to handle such a large number
 
     //returns absolute value
     public static int absoluteValue (int x) {
@@ -13,17 +13,23 @@ public class MathLib {
         else return -x;
     }
 
+    //checks double overflow
+    private static boolean overCheck(double eq) {
+        if (Double.isInfinite(eq)) return true;
+        return false;
+    }
+    //checks double underflow
+    private static boolean underCheck(double eq) {
+        if (eq==0) return true;
+        return false;
+    }
+
     //plus calculation
     private static double plus(double a, double b) {
         return a+b;
     }
     static String getPlus(double a, double b) {
-        double eq=a+b;
-        if (a>0 && b>0 && eq>a && eq>b){
-            return Double.toString(plus(a, b));
-        }else if(a<0 && b<0 && eq<a && eq<b) {
-            return Double.toString(plus(a, b));
-        }
+        return Double.toString(plus(a, b));
     }
 
     //minus calculation
@@ -39,13 +45,10 @@ public class MathLib {
         return a*b;
     }
     static String getMultiply(double a, double b) {
-        long maximum = Long.signum(a) == Long.signum(b) ? Long.MAX_VALUE : Long.MIN_VALUE;
-
-        if (a != 0 && (b > 0 && b > maximum / a ||
-                b < 0 && b < maximum / a)) {
-            return overError;
-        }
-            return Double.toString(multiply(a, b));
+        double eq = multiply(a, b);
+        if (overCheck(eq)) return overError;
+        else if (underCheck(eq) && !(a==0 || b==0)) return overError;
+        return Double.toString(eq);
     }
 
     //divide operation
@@ -63,24 +66,29 @@ public class MathLib {
         if (y==0) return 1;
         double eq=x; //result
         for (int i = absoluteValue(y); i>1; i--)
-            eq *=x; //power ToDo overflow check
+            eq *=x; //power
         return y>0 ? eq : 1/eq; // positive exponent - normal result : negative exponent - inverted result
     }
     static String getExponent(double x, int y) {
-        return Double.toString(exponent(x, y));
+        double eq = exponent(x, y);
+        if (overCheck(eq)) return overError;
+        else if (underCheck(eq) && x!=0) return overError;
+        return Double.toString(eq);
     }
 
 
     //factorial calculation
     private static long factorial(int a) {
         if (a==0) return 1; //0! = 1
+        if (a<0) return 0;
         return a*factorial(a-1); //recursive calculation
-        //ToDo overflow check
     }
     //factorial exception handling
     static String getFactorial(int a) {
         if (a<0) return mathError; // a! <=> a<0 = mathError
-        return Long.toString(factorial(a));
+        long eq = factorial(a);
+        if (underCheck(eq)) return overError;
+        return Long.toString(eq);
     }
 
     //modulo calculation

@@ -89,6 +89,8 @@ public class TestMathLib {
         System.out.println(toTest.getDivide(6, 0).equals(toTest.mathError) ? "dividing with 0 test passed" : "dividing with 0 test failed");
     }
 
+
+    //launches all basic tests
     public void test(){
         testDividePositive();
         testDivideZero();
@@ -105,7 +107,7 @@ public class TestMathLib {
         testPlusNegative();
     }
 
-    //ToDo Overflow errors tests
+    //ToDo Overflow errors tests -multiply - division
 
     //overflow multiply
     public void testOverflowMulti(){

@@ -29,7 +29,7 @@ public class MathLib {
         return Double.toString(minus(a, b));
     }
 
-    //multiply calculation ToDo
+    //multiply calculation
     private static double multiply(double a, double b) {
         return a*b;
     }

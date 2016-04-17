@@ -6,6 +6,8 @@ JCC = javac
 # the -g flag compiles with debugging information
 #
 JFLAGS = -g
+TESTS = testMathLib.class
+curr_dir = $(shell pwd)
 
 # typing 'make' will invoke the first target entry in the makefile 
 # (the default one in this case)
@@ -23,5 +25,10 @@ gui.class: gui.java
 
 # Removes all .class files, so that the next make rebuilds them
 #
+pack:
+	zip -r $(authors).zip $(curr_dir)
+doc:
+test:
+	@$(MAKE) && ./$(TESTS)
 clean: 
         $(RM) *.class

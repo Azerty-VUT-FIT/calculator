@@ -4,8 +4,8 @@ public class MathLib {
 
     public MathLib() { }
 
-    public static final String mathError = "math error"; //math mathError message
-    public static final String overError = "calc error"; //calc not able to handle such a large number
+    public static final String mathError = "syntax error"; //math mathError message
+    public static final String overError = "math error"; //calc not able to handle such a large number
 
     //returns absolute value
     public static int absoluteValue (int x) {
@@ -57,7 +57,7 @@ public class MathLib {
     }
     //division exception handling
     static String getDivide(double a, double b) {
-        if (b==0) return "mathError";
+        if (b==0) return mathError;
         return Double.toString(divide(a, b));
     }
 

@@ -32,7 +32,6 @@ public class Gui extends Applet implements ActionListener {
         add(eight);
         eight.doClick();
         eight.addActionListener(this);
-
         
         nine = new JButton("9");
         add(nine);
@@ -119,7 +118,7 @@ public class Gui extends Applet implements ActionListener {
         delete.doClick();
         delete.addActionListener(this);
 
-				dot = new JButton(".");
+	dot = new JButton(".");
         add(dot);
         dot.doClick();
         dot.addActionListener(this);

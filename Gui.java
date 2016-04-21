@@ -8,7 +8,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class Gui extends Applet implements ActionListener {
-    JButton one, two, three, four, five, six, seven, eight, nine, zero, plus, minus, divide, multiply, exponent, 
+    JButton one, two, three, four, five, six, seven, eight, nine, zero, plus, minus, divide, multiply, exponent, dot, 
     factorial, modulo, equals, delete;
     JTextField answer;
 
@@ -119,6 +119,11 @@ public class Gui extends Applet implements ActionListener {
         delete.doClick();
         delete.addActionListener(this);
 
+				dot = new JButton(".");
+        add(dot);
+        dot.doClick();
+        dot.addActionListener(this);
+
         setSize(getPreferredSize());
 
     }
@@ -153,6 +158,10 @@ public class Gui extends Applet implements ActionListener {
             operace=0;
         	answer.setText(input="");
         }
+				if(e.getSource() == dot){
+            answer.setText(input+=".");
+        }
+				
         if (e.getSource()==plus) {
             operace=1;
             a=input;
@@ -277,10 +286,11 @@ class GuiLayout implements LayoutManager {
         c = parent.getComponent(16);
         if (c.isVisible()) {c.setBounds(insets.left+144,insets.top+280,112,48);}
         c = parent.getComponent(17);
-        if (c.isVisible()) {c.setBounds(insets.left+384,insets.top+280,112,48);}
+        if (c.isVisible()) {c.setBounds(insets.left+448,insets.top+280,48,48);}
         c = parent.getComponent(18);
         if (c.isVisible()) {c.setBounds(insets.left+568,insets.top+280,48,48);}
         c = parent.getComponent(19);
         if (c.isVisible()) {c.setBounds(insets.left+504,insets.top+280,48,48);}
-    }
+        c = parent.getComponent(20);
+        if (c.isVisible()) {c.setBounds(insets.left+384,insets.top+280,48,48);}
 }

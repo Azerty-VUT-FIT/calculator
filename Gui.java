@@ -1,9 +1,13 @@
+package com.azerty
+
 import java.awt.*;
 import java.awt.event.*;
 import java.applet.Applet;
 import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-public class Gui extends Applet {
+public class Gui extends Applet implements ActionListener {
     JButton one, two, three, four, five, six, seven, eight, nine, zero, plus, minus, divide, multiply, exponent, 
     factorial, modulo, equals, delete;
     JTextField answer;
@@ -17,68 +21,179 @@ public class Gui extends Applet {
 
         seven = new JButton("7");
         add(seven);
+        seven.doClick();
+        seven.addActionListener(this);
         
-        answer = new JTextField("0.0");
+        answer = new JTextField("0");
         add(answer);
+        answer.setEditable(false);
 
         eight = new JButton("8");
         add(eight);
+        eight.doClick();
+        eight.addActionListener(this);
 
+        
         nine = new JButton("9");
         add(nine);
-
+        nine.doClick();
+        nine.addActionListener(this);
+        
         plus = new JButton("+");
         add(plus);
+        plus.doClick();
+        plus.addActionListener(this);
 
         minus = new JButton("-");
         add(minus);
+        minus.doClick();
+        minus.addActionListener(this);
 
         five = new JButton("5");
         add(five);
-
+        five.doClick();
+        five.addActionListener(this);
+        
         four = new JButton("4");
         add(four);
-
+        four.doClick();
+        four.addActionListener(this);
+        
         six = new JButton("6");
         add(six);
+        six.doClick();
+        six.addActionListener(this);
 
         divide = new JButton("/");
         add(divide);
+        divide.doClick();
+        divide.addActionListener(this);
 
         multiply = new JButton("*");
         add(multiply);
+        multiply.doClick();
+        multiply.addActionListener(this);
 
         one = new JButton("1");
         add(one);
-
+        one.doClick();
+        one.addActionListener(this);
+        
         three = new JButton("3");
         add(three);
+        three.doClick();
+        three.addActionListener(this);
 
         two = new JButton("2");
         add(two);
+        two.doClick();
+        two.addActionListener(this);
 
         exponent = new JButton("x^y");
         add(exponent);
+        exponent.doClick();
+        exponent.addActionListener(this);
 
         factorial = new JButton("!");
         add(factorial);
+        factorial.doClick();
+        factorial.addActionListener(this);
 
         zero = new JButton("0");
         add(zero);
+        zero.doClick();
+        zero.addActionListener(this);
 
         modulo = new JButton("%");
         add(modulo);
+        modulo.doClick();
+        modulo.addActionListener(this);
 
         equals = new JButton("=");
         add(equals);
+        equals.doClick();
+        equals.addActionListener(this);
 
         delete = new JButton("C");
         add(delete);
+        delete.doClick();
+        delete.addActionListener(this);
 
         setSize(getPreferredSize());
 
     }
+    String input="";
+    String a="";
+    String b="";
+    int operace=0;//plus=1, minus=2, divide=3, multiply=4, modulo=5, factorial=6, exponent=7
+    public void actionPerformed(ActionEvent e) {
+    	if(e.getSource() == nine)
+            answer.setText(input+="9");
+        if(e.getSource() == eight)
+        	answer.setText(input+="8");
+        if(e.getSource() == seven)
+        	answer.setText(input+="7");
+        if(e.getSource() == six)
+        	answer.setText(input+="6");
+        if(e.getSource() == five)
+        	answer.setText(input+="5");
+        if(e.getSource() == four)
+        	answer.setText(input+="4");
+        if(e.getSource() == three)
+        	answer.setText(input+="3");
+        if(e.getSource() == two)
+        	answer.setText(input+="2");
+        if(e.getSource() == one)
+        	answer.setText(input+="1");
+        if(e.getSource() == zero)
+        	answer.setText(input+="0");
+        if(e.getSource() == delete){
+            a="";
+            b="";
+            operace=0;
+        	answer.setText(input="");
+        }
+        if (e.getSource()==plus) {
+            operace=1;
+            a=input;
 
+        }
+        if (e.getSource() == equals){
+            if(b==""){
+                operace=0;
+                answer.setText(a);
+            }
+            else{
+                switch(operace){
+                    case 1:
+                        MathLib.getPlus(Double.parseDouble(a),Double.parseDouble(b));
+                        break;
+                    case 2:
+                        MathLib.getMinus(Double.parseDouble(a),Double.parseDouble(b));
+                        break;
+                    case 3:
+                        MathLib.getDivide(Double.parseDouble(a),Double.parseDouble(b));
+                        break;
+                    case 4:
+                        MathLib.getMultiply(Double.parseDouble(a),Double.parseDouble(b));
+                        break;
+                    case 5:
+                        MathLib.getFactorial(Double.parseDouble(a),Double.parseDouble(b));
+                        break;
+                    case 6:
+                        MathLib.getMinus(Double.parseDouble(a),Double.parseDouble(b));
+                        break;
+                    case 7:
+                        MathLib.getExponent(Double.parseDouble(a),Double.parseDouble(b));
+                        break;
+                }
+                operace=0;
+                answer.setText(a);
+            }
+            
+        }
+    }
+    
     public static void main(String args[]) {
         Gui applet = new Gui();
         Frame window = new Frame("Gui");
@@ -94,8 +209,9 @@ public class Gui extends Applet {
         window.pack();
         window.setVisible(true);
     }
-}
 
+
+}
 class GuiLayout implements LayoutManager {
 
     public GuiLayout() {

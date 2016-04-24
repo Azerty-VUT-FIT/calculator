@@ -1,7 +1,0 @@
-[Desktop Entry]
-Name=Azerty Calculator
-Exec=Calculator
-Terminal=false
-Type=Application
-StartupNotify=true
-Icon=/usr/share/pixmaps/calculator.xpm

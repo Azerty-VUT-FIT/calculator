@@ -78,9 +78,6 @@ public class Main extends Applet implements ActionListener {
 				a=MathLib.getMultiply(Double.parseDouble(a),Double.parseDouble(b));
 				break;
 			case 5:
-				a=MathLib.getFactorial(Integer.parseInt(a));
-				break;
-			case 6:
 				if(input.equals("")){
                             input=a;
                         }
@@ -108,6 +105,9 @@ public class Main extends Applet implements ActionListener {
                         }
                         a=MathLib.getFactorial(Long.parseLong(a));
                         break;
+			case 6:
+				a=MathLib.getModulo(Double.parseDouble(a),Integer.parseInt(b));
+				break;
 			case 7:
 				a=MathLib.getExponent(Double.parseDouble(a),Integer.parseInt(b));
 				break;

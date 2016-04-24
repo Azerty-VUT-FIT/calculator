@@ -79,8 +79,33 @@ public class Main extends Applet implements ActionListener {
 				a=MathLib.getFactorial(Integer.parseInt(a));
 				break;
 			case 6:
-				a=MathLib.getModulo(Double.parseDouble(a),Double.parseDouble(b));
-				break;
+				if(input.equals("")){
+                            input=a;
+                        }
+                        if(input.contains(".")) {
+                            System.out.println("break piont");
+                            int i = input.indexOf('.');
+                            for (int j=i; j<input.length(); j++) {
+                                System.out.println(j);
+                                if(input.charAt(j) != '0') {
+                                    System.out.println("if");
+                                    answer.setText(MathLib.overError);
+                                    check=false;
+                                    break;
+                                    //System.out.println("if");
+                                }
+                                else {
+                                    a=a.substring(0, i-1);
+                                    System.out.println("else");
+                                }
+                            }
+                        }
+                        if(!check){
+                            check=true;
+                            break;
+                        }
+                        a=MathLib.getFactorial(Long.parseLong(a));
+                        break;
 			case 7:
 				a=MathLib.getExponent(Double.parseDouble(a),Integer.parseInt(b));
 				break;

@@ -141,16 +141,21 @@ public class MathLib{
      * @return factorial of number a
 		 */
     //factorial calculation
-    public static long factorial(int a) {
-        if (a==0) return 1; //0! = 1
+    public static long factorial(long a) {
+        f (a==0) return 1; //0! = 1
         if (a<0) return 0;
-        return a*factorial(a-1); //recursive calculation
+        //return a*factorial(a-1); //recursive calculation
+        for (long i=a-1; i>0; i--){
+            a=a*i;
+        }
+        return a;
     }
     //factorial exception handling
-    static String getFactorial(int a) {
+    static String getFactorial(long a) {
         if (a<0) return mathError; // a! <=> a<0 = mathError
+        if (a>20) return overError;
         long eq = factorial(a);
-        if (underCheck(eq)) return overError;
+        if (eq<0) return overError;
         return Long.toString(eq);
     }
 

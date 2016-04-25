@@ -12,8 +12,10 @@ authors = xbilto00xcisar07xhruba09xcervi22
 # typing 'make' will invoke the first target entry in the makefile 
 # (the default one in this case)
 #
-default: MathLib.class TestMathLib.class Main.class ToJAR
+default: all ToJAR
 
+all: *.java
+	$(JCC) $(JFLAGS) . *.java
 Main.class: Main.java
 	$(JCC) $(JFLAGS) . Main.java
 
@@ -30,10 +32,10 @@ ToJAR:
 # Removes all .class files, so that the next make rebuilds them
 #
 pack:
-	zip $(authors).zip MathLib.java Main.java TestMathLib.java manifest.mf Makefile
+	zip -r $(authors).zip $(curr_dir)
 doc:
+	javadoc *.java
 test:
-	@$(MAKE) && java -jar calc.jar -t
+	@$(MAKE) && java -jar calculator.jar -t
 clean: 
 	$(RM) *.class
-
